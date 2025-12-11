@@ -1,0 +1,7 @@
+{
+  "name": "skncr ai",
+  "description": "Your personal AI dermatologist and clean beauty ingredient scanner.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
