@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,11 +12,24 @@
           extend: {
             colors: {
               primary: '#ea4d89',
-              'primary-soft': '#fce7f3', // Light pink background
-              'primary-dark': '#be185d',
+              'primary-light': '#ff9a9e',
+              'primary-soft': '#fff0f5',
+              surface: '#ffffff',
+              background: '#f8f9fc',
+            },
+            backgroundImage: {
+              'gradient-primary': 'linear-gradient(135deg, #ea4d89 0%, #ff9a9e 100%)',
+              'gradient-soft': 'linear-gradient(180deg, #fff0f5 0%, #ffffff 100%)',
+              'gradient-dark': 'linear-gradient(135deg, #2d2a32 0%, #1a181c 100%)',
+              'glass': 'linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%)',
             },
             fontFamily: {
               sans: ['DM Sans', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(234, 77, 137, 0.15)',
+              'glow': '0 0 20px rgba(234, 77, 137, 0.4)',
+              'card': '0 4px 20px rgba(0, 0, 0, 0.03)',
             }
           }
         }
@@ -25,8 +39,9 @@
     <style>
       body {
         font-family: 'DM Sans', sans-serif;
-        background-color: #F8FAFC; /* Slate 50 */
+        background-color: #f8f9fc;
         -webkit-font-smoothing: antialiased;
+        overscroll-behavior-y: none; /* Prevents pull-to-refresh on mobile */
       }
       /* Hide scrollbar for clean UI */
       .no-scrollbar::-webkit-scrollbar {
@@ -35,6 +50,12 @@
       .no-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
       }
     </style>
   <script type="importmap">
