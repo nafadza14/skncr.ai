@@ -47,19 +47,34 @@ export interface ProductAnalysisResult {
   keyBenefits: string[];
 }
 
+export interface RoutineStep {
+    stepName: string; // e.g. "Cleanser"
+    isCompleted: boolean;
+    productId?: string; // ID of product used from shelf
+    productName?: string;
+}
+
+export interface DailyRoutineLog {
+    morning: RoutineStep[];
+    afternoon: RoutineStep[];
+    night: RoutineStep[];
+}
+
+export interface LifestyleFactors {
+  sleepHours: number;
+  waterIntake: number;
+  dietaryTriggers: string[];
+  stressLevel: number;
+}
+
 export interface DailyLog {
   id: string;
   userId: string;
   date: string;
   photoUrl?: string; // Base64 for this demo
   metrics: SkinMetric[];
-  lifestyleFactors: {
-    sleepHours: number;
-    waterIntake: number; // glasses
-    dietaryTriggers: string[]; // "Dairy", "Sugar"
-    stressLevel: number; // 1-5
-  };
-  correlation_suspect?: string; // AI generated insight linking trigger to issue
+  routine?: DailyRoutineLog;
+  lifestyleFactors?: LifestyleFactors;
 }
 
 export type TabView = 'HOME' | 'EXPLORE' | 'SCAN' | 'ROUTINE' | 'PROFILE';
