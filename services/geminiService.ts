@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import { DERMATOLOGIST_SYSTEM_INSTRUCTION, CHEMIST_SYSTEM_INSTRUCTION } from '../constants';
 import { UserSkinProfile, ProductAnalysisResult, SkinMetric, SkinConcernType } from '../types';
@@ -62,7 +61,7 @@ const productAnalysisSchema: Schema = {
 };
 
 export const analyzeSkinImage = async (base64Image: string): Promise<{ metrics: SkinMetric[], followUpQuestion: string }> => {
-  const model = "gemini-2.5-pro"; 
+  const model = "gemini-3-pro-preview"; 
   const response = await ai.models.generateContent({
     model: model,
     contents: {
@@ -83,7 +82,7 @@ export const analyzeSkinImage = async (base64Image: string): Promise<{ metrics: 
 };
 
 export const analyzeProductImage = async (base64Image: string, userProfile: UserSkinProfile): Promise<ProductAnalysisResult> => {
-  const model = "gemini-2.5-pro"; 
+  const model = "gemini-3-pro-preview"; 
   const userContext = `User Profile: ${userProfile.skinType}, Concerns: ${userProfile.primaryConcerns.join(", ")}, Strict Avoid: ${userProfile.avoid_list.join(", ")}.`;
 
   const response = await ai.models.generateContent({
